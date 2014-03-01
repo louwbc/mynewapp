@@ -12,7 +12,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 set :domain, '128.199.228.248' 
 set :deploy_to, '/var/www/mynewapp'
-set :repository, 'git://...'
+set :repository, 'https://github.com/louwbc/mynewapp.git'
 set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
@@ -20,8 +20,9 @@ set :branch, 'master'
 set :shared_paths, ['config/database.yml', 'log']
 
 # Optional settings:
-#   set :user, 'foobar'    # Username in the server to SSH to.
+set :user, 'hero'    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
+set :ssh_options, '-A'
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
@@ -31,7 +32,7 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
+  invoke :'rvm:use[ruby-2.0.0-p451@default]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
