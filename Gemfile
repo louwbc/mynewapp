@@ -44,5 +44,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'mina'
-gem 'mysql'
-
+group :production do
+  gem 'mysql'
+end
